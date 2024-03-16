@@ -22,7 +22,7 @@ import { CardWrapper } from '@/components/auth/card-wrapper';
 
 import { RegisterSchema } from '@/schemas';
 
-import { login } from '@/actions/login';
+import { signup } from '@/actions/signup';
 
 export const SignupForm = () => {
   const [error, setError] = useState<string | undefined>('');
@@ -44,7 +44,7 @@ export const SignupForm = () => {
     setSuccess('');
 
     startTransition(() => {
-      login(values).then((data) => {
+      signup(values).then((data) => {
         setError(data.error);
         setSuccess(data.success);
       });
