@@ -1,8 +1,14 @@
+import { Button } from '@/components/ui/button';
+import { LoginButton } from '@/components/auth/login-button';
+
 const Home = () => {
   return (
-    <div className="bg-zinc-950 h-screen text-white flex justify-center items-center">
-      <p>Auth.js v5 + Next.js 14</p>
-    </div>
+    <main className="h-full flex flex-col gap-6 justify-center items-center">
+      <h1 className="text-2xl">Auth.js v5 + Next.js 14</h1>
+      <LoginButton>
+        <Button variant="secondary">Sign in</Button>
+      </LoginButton>
+    </main>
   );
 };
 
