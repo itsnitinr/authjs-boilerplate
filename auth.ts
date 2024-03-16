@@ -20,6 +20,10 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
+  pages: {
+    signIn: '/auth/login',
+    error: '/auth/error',
+  },
   events: {
     // Automatically verify email when a user signs up using OAuth
     async linkAccount({ user }) {
