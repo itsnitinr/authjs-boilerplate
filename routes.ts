@@ -5,6 +5,7 @@ export const authRoutes = [
   '/auth/signup',
   '/auth/error',
   '/auth/forgot-password',
+  '/auth/reset-password',
 ];
 
 export const apiAuthPrefix = '/api/auth';
