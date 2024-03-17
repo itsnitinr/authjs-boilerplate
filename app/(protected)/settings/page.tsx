@@ -10,8 +10,8 @@ const SettingsPage = () => {
   const user = useCurrentUser();
 
   return (
-    <div>
-      <p>{JSON.stringify(user)}</p>
+    <div className="flex flex-col gap-4">
+      <p>Hello, {user?.name}</p>
       <Button variant="secondary" onClick={() => signOut()}>
         Sign out
       </Button>
