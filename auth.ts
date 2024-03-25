@@ -11,6 +11,7 @@ declare module 'next-auth' {
   interface Session {
     user: {
       role: UserRole;
+      isTwoFactorEnabled: boolean;
     } & DefaultSession['user'];
   }
 }
@@ -70,12 +71,21 @@ export const {
       if (!user) return token;
 
       token.role = user.role;
+      token.isTwoFactorEnabled = user.isTwoFactorEnabled;
 
       return token;
     },
     async session({ token, session }) {
+      if (token.sub && session.user) {
+        session.user.id = token.sub;
+      }
+
       if (token.role && session.user) {
         session.user.role = token.role as UserRole;
+      }
+
+      if (session.user) {
+        session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
       }
 
       return session;
