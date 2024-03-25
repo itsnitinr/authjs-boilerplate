@@ -1,3 +1,4 @@
+import { Toaster } from 'sonner';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { SessionProvider } from 'next-auth/react';
@@ -23,7 +24,10 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en" className="dark">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          {children}
+          <Toaster />
+        </body>
       </html>
     </SessionProvider>
   );
